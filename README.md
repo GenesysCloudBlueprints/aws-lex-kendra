@@ -130,7 +130,7 @@ Architect populates the defined intents of the Lexbot, including a Kendra search
     
     d. On the right side of the screen, under the **Queue** menu, select the appropriate queue.
     
-8. The remaining flow components are preset for the Lex chatbot. On the top left of the screen, click **Save**.
+8. On the top left of the screen, click **Save**. The remaining flow components are preset for the Lex chatbot. 
 
 9. On the top left of the screen, click **Publish**.
 ## Create a Genesys web chat widget and test the Lex-Kendra solution
