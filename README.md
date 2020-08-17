@@ -132,6 +132,7 @@ Architect populates the defined intents of the Lexbot, including a Kendra search
     
 The remaining flow components are preset for the Lex chatbot.    
 8. On the top left of the screen, click **Save**.
+
 9. On the top left of the screen, click **Publish**.
 ## Create a Genesys web chat widget and test the Lex-Kendra solution
 You need to complete the following procedures in Genesys Cloud and the Genesys Cloud Developer Center Web Chat developer tool:
