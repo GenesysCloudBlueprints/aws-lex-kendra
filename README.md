@@ -84,6 +84,7 @@ To deploy the template, complete the following:
 9. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
 
 **Note**: The stack creation process can take up to 30 minutes. You can *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
+
 10. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
 11. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
 12. Copy the **AssumeIAMRrole** Physical ID for use in the upcoming *Configure and activate the Lex integration in Genesys Cloud* procedure.
@@ -120,10 +121,15 @@ Architect populates the defined intents of the Lexbot, including a Kendra search
     a. On the menu to the right of the Disconnect component, click **Toolbox > Change State**.
     b. On the right side of the screen, under the **State** menu, select **Initial State**.
 7. Set the Not Satisfied component and the Failure component to transfer to an ACD queue:
+
     a. On the menu to the right of the Disconnect component, click **Toolbox > Transfer to ACD**.
+    
     b. On the right side of the screen, under the **Queue** menu, select the appropriate queue.
+    
     c. On the menu to the right of the Failure component, click **Toolbox > Transfer to ACD**.
+    
     d. On the right side of the screen, under the **Queue** menu, select the appropriate queue.
+    
 The remaining flow components are preset for the Lex chatbot.    
 8. On the top left of the screen, click **Save**.
 9. On the top left of the screen, click **Publish**.
@@ -148,7 +154,7 @@ You have have completed the configuration for the Lex-Kendra chatbot solution. P
 1. Click **Start Chat** to test your Lex-Kendra chatbot solution.
 2. Type in test questions to trigger a specific bot response.
 
-To help formulate test questions to elicit a specific response, you can use the AWS console to examine the Kendra_Search_Intent and also the .CSV file you uploaded to the S3 bucket. See the sample questions below for examples.
+To help formulate test questions to elicit a specific response, you can use the AWS console to examine the Kendra_Search_Intent and also the .CSV file you uploaded to the S3 bucket. See the sample questions below for examples of a standard Lex response and a response from a Kendra interaction.
 
 **Sample Question 1**
 
