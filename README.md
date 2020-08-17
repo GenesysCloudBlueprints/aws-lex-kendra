@@ -60,9 +60,7 @@ The Lex-Kendra chatbot deployment has the following stages:
 ## Create an Amazon S3 bucket and upload the FAQ document
 1. Create an Amazon S3 bucket to serve as the document repository and copy the bucket name for later use. For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html "Opens the Amazon Creating a bucket article").
 2. Download an FAQ file in .csv format from the [aws-lex-kendra](https://github.com/MyPureCloud/aws-lex-kendra "Opens the Amazon Lex integration FAQs article") GitHub repository.
-:::primary
-Note: Genesys supplies a sample FAQ file (WHO_COVID_FAQ.csv) for your use. The source for this information is the World Health Organization [Q&A on coronaviruses (COVID-19)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses "Opens the Q&A on coronaviruses article"). Check the WHO page for the latest and most complete COVID-19 information.
-:::
+**Note**: Genesys supplies a sample FAQ file (WHO_COVID_FAQ.csv) for your use. The source for this information is the World Health Organization [Q&A on coronaviruses (COVID-19)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses "Opens the Q&A on coronaviruses article"). Check the WHO page for the latest and most complete COVID-19 information.
 3. Upload the FAQ file to your S3 bucket. You can use the supplied file or create your own using the repo file as a model.     
 
 ## Deploy the AWS CloudFormation template
@@ -83,9 +81,7 @@ To deploy the template, complete the following:
 7. Click **Next**.
 8. On the Configure stack options screen, click **Next**.
 9. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
-:::primary
 **Note**: The stack creation process can take up to 30 minutes. You can *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
-:::
 10. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
 11. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
 12. Copy the **AssumeIAMRrole** Physical ID for use in the upcoming *Configure and activate the Lex integration in Genesys Cloud* procedure.
@@ -103,12 +99,10 @@ You need to complete the following procedures in Genesys Cloud:
 1. [Install the Amazon Lex integration from Genesys AppFoundry](https://help.mypurecloud.com/?p=168115 "Opens the Install the Amazon Lex integration from Genesys AppFoundry article")
 2. [Configure and activate the Lex integration in Genesys Cloud](https://help.mypurecloud.com/?p=168149 "Opens the activate the Lex integration article")
 
-:::primary
 **Note**: In the *Configure and activate the Lex integration in PureCloud* procedure, a Change Credentials dialog prompts you for the customer AWS role that Genesys Cloud is authorized to access. Paste the **AssumeIAMRrole** Physical ID you copied from the AWS console into this dialog.
-:::
-:::primary
+
 **Note**: The Lex-Kendra chatbot deployment requires an AWS region that supports an Amazon Lex endpoint. Amazon provides this information in [Amazon Lex endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/lex.html "Opens the Amazon Lex integration FAQs article").
-:::
+
 ## Use Architect to call the Lex-Kendra chatbot on inbound chat flows
 
 This blueprint gives the minimum steps required to get the Lex-Kendra chatbot up and running on an inbound chat flow. It will create a new data action to initially deflect all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see the *Additional resources* section.
@@ -135,14 +129,13 @@ The remaining flow components are preset for the Lex chatbot.
 You need to complete the following procedures in Genesys Cloud and the Genesys Cloud Developer Center Web Chat developer tool:
 ### Create a Genesys web chat widget
 1. From the Genesys Cloud admin menu, create a Genesys Widget Version 2 in the normal manner. For more information, see the *Version 2* section in [Create a widget for web chat](https://help.mypurecloud.com/?p=195772 "Opens the widget for web chat article").
-:::primary
-Note: In the Create a widget for web chat procedure, in the **Route to Flow** menu, choose the flow you created in the earlier procedure.
-:::
+
+**Note:** In the Create a widget for web chat procedure, in the **Route to Flow** menu, choose the flow you created in the earlier procedure.
+
 2. After you save the widget, the saved page displays a Deployment Key string. Copy the Deployment Key string for later use.
 3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.mypurecloud.com/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start article").
-:::primary
-Note: The Web Chat developer tool populates with menu options for the widget and queue you created earlier, as authentication is shared between Genesys Cloud and the developer tools. If the menu is not populated, use the Deployment Key string you copied earlier.
-:::
+**Note:** The Web Chat developer tool populates with menu options for the widget and queue you created earlier, as authentication is shared between Genesys Cloud and the developer tools. If the menu is not populated, use the Deployment Key string you copied earlier.
+
 4. From the Web Chat developer tool, under the **Deployment** menu, select the chat widget you created.
 5. Under the **Queue** menu, select the appropriate queue.
 ![Web Chat developer tool](/images/bp_kendra_wc1.png)
@@ -159,6 +152,7 @@ To help formulate test questions to elicit a specific response, you can use the 
 The question "What is the incubation period for the virus?" elicits a standard Lex intent. You can confirm this is a standard Lex intent by observing the response begins with the term "Amazon Lex". The bot icon in the text stream also confirms the response is from the bot.
 
 ![Sample Question 1](/images/bp_kendra_TQ1.png)
+
 **Sample Question 2**
 
 The question "What precautions can I take?" does not elicit a standard Lex intent, as there is no Lex intent preconfigured for that question. This question triggers a Kendra search and the response comes from a search of the document you uploaded into your S3 bucket. You can confirm this is a Lex-Kendra response by observing the response begins with the term "On searching the Enterprise repository".
