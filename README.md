@@ -83,7 +83,7 @@ To deploy the template, complete the following:
 8. On the Configure stack options screen, click **Next**.
 9. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
 
-**Note**: The stack creation process can take up to 30 minutes. You can *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
+**Note**: The stack creation process can take up to 30 minutes. You can complete the procedures *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
 
 10. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
 11. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
@@ -118,8 +118,11 @@ This blueprint gives the minimum steps required to get the Lex-Kendra chatbot up
 5. Under the **Bot alias** menu, select the appropriate name.
 Architect populates the defined intents of the Lexbot, including a Kendra search intent.
 6. Set the flow to return to the initial state after the Lexbot is called:
+
     a. On the menu to the right of the Disconnect component, click **Toolbox > Change State**.
+    
     b. On the right side of the screen, under the **State** menu, select **Initial State**.
+    
 7. Set the Not Satisfied component and the Failure component to transfer to an ACD queue:
 
     a. On the menu to the right of the Disconnect component, click **Toolbox > Transfer to ACD**.
