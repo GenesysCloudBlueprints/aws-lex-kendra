@@ -60,6 +60,7 @@ The Lex-Kendra chatbot deployment has the following stages:
 ## Create an Amazon S3 bucket and upload the FAQ document
 1. Create an Amazon S3 bucket to serve as the document repository and copy the bucket name for later use. For more information, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html "Opens the Amazon Creating a bucket article").
 2. Download an FAQ file in .csv format from the [aws-lex-kendra](https://github.com/MyPureCloud/aws-lex-kendra "Opens the Amazon Lex integration FAQs article") GitHub repository.
+
 **Note**: Genesys supplies a sample FAQ file (WHO_COVID_FAQ.csv) for your use. The source for this information is the World Health Organization [Q&A on coronaviruses (COVID-19)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses "Opens the Q&A on coronaviruses article"). Check the WHO page for the latest and most complete COVID-19 information.
 3. Upload the FAQ file to your S3 bucket. You can use the supplied file or create your own using the repo file as a model.     
 
@@ -81,6 +82,7 @@ To deploy the template, complete the following:
 7. Click **Next**.
 8. On the Configure stack options screen, click **Next**.
 9. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
+
 **Note**: The stack creation process can take up to 30 minutes. You can *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
 10. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
 11. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
@@ -134,6 +136,7 @@ You need to complete the following procedures in Genesys Cloud and the Genesys C
 
 2. After you save the widget, the saved page displays a Deployment Key string. Copy the Deployment Key string for later use.
 3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.mypurecloud.com/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start article").
+
 **Note:** The Web Chat developer tool populates with menu options for the widget and queue you created earlier, as authentication is shared between Genesys Cloud and the developer tools. If the menu is not populated, use the Deployment Key string you copied earlier.
 
 4. From the Web Chat developer tool, under the **Deployment** menu, select the chat widget you created.
