@@ -60,6 +60,7 @@ The Lex-Kendra chatbot deployment has the following stages:
 2. Download an FAQ file in .csv format from the [aws-lex-kendra](https://github.com/MyPureCloud/aws-lex-kendra "Opens the Amazon Lex integration FAQs article") GitHub repository.
 
 **Note**: Genesys supplies a sample FAQ file (WHO_COVID_FAQ.csv) for your use. The source for this information is the World Health Organization [Q&A on coronaviruses (COVID-19)](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-coronaviruses "Opens the Q&A on coronaviruses article"). Check the WHO page for the latest and most complete COVID-19 information.
+
 3. Upload the FAQ file to your S3 bucket. You can use the supplied file or create your own using the repo file as a model.     
 
 ## Deploy the AWS CloudFormation template
@@ -72,20 +73,24 @@ The AWS CloudFormation template creates an AWS stack for the Lex-Kendra chatbot.
 
 To deploy the template, complete the following:
 1. Log into AWS console.
-2. Click the [CloudFormation template](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=lex-kendra&templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-quantiphi-lex-kendra-backend/templates/lex_bot_kendra_master.template.yaml "Opens the CloudFormation template"). This opens the CloudFormation template in your AWS account.
-3. Click **Next**.
-4. In the **S3 bucket with documents** field, paste the S3 bucket name from the earlier procedure.
-5. In the **Assuming Account ID** field, enter 765628985471. This is Genesys Cloud’s production account ID.
-6. In the **Organization's ID** field, enter your Genesys Cloud organization ID. To obtain your ID, see [FAQ: How do I find my organization ID?](https://help.mypurecloud.com/?p=78571 "Opens the FAQ")   
-7. Click **Next**.
-8. On the Configure stack options screen, click **Next**.
-9. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
+2. Locate and click on the [CloudFormation service](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=lex-kendra&templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-quantiphi-lex-kendra-backend/templates/lex_bot_kendra_master.template.yaml "Opens the CloudFormation template"). 
+3. Click **Create Stack** and select **With new resources (standard)**.
+4. Confirm the default selections of **Template is ready** and **Amazon S3 URL**.
+5. Click **Next**.
+6. Open a new tab and copy your S3 bucket name from the AWS console listing for Amazon S3. 
+6. In the **S3 bucket with documents** field, paste the S3 bucket name.
+![S3 bucket name](/images/bp_kendra_s3_1.png)
+7. In the **Assuming Account ID** field, enter 765628985471. This is Genesys Cloud’s production account ID.
+8. In the **Organization's ID** field, enter your Genesys Cloud organization ID. To obtain your ID, see [FAQ: How do I find my organization ID?](https://help.mypurecloud.com/?p=78571 "Opens the FAQ")   
+10. Click **Next**.
+11. On the Configure stack options screen, click **Next**.
+12. On the Review Lex-Kendra screen, click the acknowledgements at the bottom of the page and click **Create stack**.
 
 **Note**: The stack creation process can take up to 30 minutes. You can complete the procedures *Create a queue in Genesys Cloud* and *Install the Amazon Lex integration from Genesys AppFoundry* while the stack builds.
 
-10. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
-11. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
-12. Copy the **AssumeIAMRrole** Physical ID for use in the upcoming *Configure and activate the Lex integration in Genesys Cloud* procedure.
+13. After enough time has elapsed for the stack creation to complete, in the Amazon Lex console under **CloudFormation > Stacks**, confirm the Lex-Kendra stacks exist.
+14. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
+15. Copy the **AssumeIAMRrole** Physical ID for use in the upcoming *Configure and activate the Lex integration in Genesys Cloud* procedure.
 ## Create a queue in Genesys Cloud
 The Lex-Kendra solution requires a queue in Genesys Cloud. You can create a new queue or use an existing queue. This queue receives the customer chat stream if the transfer-to-ACD function is invoked by the solution.
 
