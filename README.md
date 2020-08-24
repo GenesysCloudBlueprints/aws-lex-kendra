@@ -73,9 +73,9 @@ The AWS CloudFormation template creates an AWS stack for the Lex-Kendra chatbot.
 
 To deploy the template, complete the following:
 1. Log into AWS console.
-2. Locate and click on the [CloudFormation service](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=lex-kendra&templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-quantiphi-lex-kendra-backend/templates/lex_bot_kendra_master.template.yaml "Opens the CloudFormation template"). 
-3. Click **Create Stack** and select **With new resources (standard)**.
-4. Confirm the default selections of **Template is ready** and **Amazon S3 URL**.
+2. Click on the [CloudFormation service](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=lex-kendra&templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-quantiphi-lex-kendra-backend/templates/lex_bot_kendra_master.template.yaml "Opens the CloudFormation template") link to start the creation of your CloudFormation stack. 
+3. Confirm the default selections of **Template is ready** and **Amazon S3 URL**.
+4. Confirm the *lex_bot_kendra_master.template.yaml* URL is entered in the **Amazon S3 URL** field.
 5. Click **Next**.
 6. Open a new tab and copy your S3 bucket name from the AWS console listing for Amazon S3. 
 6. In the **S3 bucket with documents** field, paste the S3 bucket name.
