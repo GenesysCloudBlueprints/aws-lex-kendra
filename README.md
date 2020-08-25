@@ -147,7 +147,7 @@ You need to complete the following procedures in Genesys Cloud and the Genesys C
 **Note:** In the Create a widget for web chat procedure, in the **Route to Flow** menu, choose the flow you created in the earlier procedure.
 
 2. After you save the widget, the saved page displays a Deployment Key string. Copy the Deployment Key string for later use.
-3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.mypurecloud.com/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start article").
+3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start article").
 
 **Note:** The Web Chat developer tool populates with menu options for the widget and queue you created earlier through shared authentication between Genesys Cloud and the developer tools. If the menu is not populated, use the Deployment Key string you copied earlier.
 
