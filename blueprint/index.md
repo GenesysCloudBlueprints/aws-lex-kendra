@@ -1,4 +1,12 @@
-#  Deployment Guide for the Lex-Kendra Chatbot on Genesys Cloud
+---
+title: Deployment Guide for the Lex-Kendra Chatbot on Genesys Cloud
+indextype: blueprint
+icon: blueprint
+image: images/bpKendraOverviewMR.png
+category: 6
+summary: |
+  This Genesys Blueprint provides instructions for deploying the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot is part of the AWS Contact Center Intelligence (CCI) accelerator. This integrated solution enhances the capabilities of Genesys Cloud with a conversational AI capability from AWS. Both Genesys Cloud and the Lex-Kendra solution components reside natively on AWS Cloud.
+---
 
 This Genesys Blueprint provides instructions for deploying the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot is part of the AWS Contact Center Intelligence (CCI) accelerator. This integrated solution enhances the capabilities of Genesys Cloud with a conversational AI capability from AWS. Both Genesys Cloud and the Lex-Kendra solution components reside natively on AWS Cloud.
 
