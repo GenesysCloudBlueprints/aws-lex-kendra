@@ -7,16 +7,16 @@ category: 6
 summary: |
   This Genesys Cloud Developer Blueprint explains how to deploy the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot solution, which is part of the AWS Contact Center Intelligence (CCI) accelerator, combines this basic Amazon Lex chatbot with Amazon Kendra to create a Lex-Kendra self-service chatbot. This combination enables an Amazon Lex flow to invoke an AWS Lambda function to call Amazon Kendra after a customer initiates a chat and enters a triggering question.
 ~~~
-This Genesys Cloud Developer Blueprint explains how to deploy the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot solution, which is part of the AWS Contact Center Intelligence (CCI) accelerator, combines this basic Amazon Lex chatbot with Amazon Kendra to create a Lex-Kendra self-service chatbot. This combination enables an Amazon Lex flow to invoke an AWS Lambda function to call Amazon Kendra after a customer initiates a chat and enters a triggering question.
+This Genesys Cloud Developer Blueprint explains how to deploy the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot solution, which is part of the AWS Contact Center Intelligence (CCI) accelerator, combines this basic Lex chatbot with Amazon Kendra to create a Lex-Kendra self-service chatbot. This combination enables an Amazon Lex flow to invoke an AWS Lambda function to call Amazon Kendra after a customer initiates a chat and enters a triggering question.
 
 This integrated solution enhances the capabilities of Genesys Cloud with conversational AI capability from AWS. Both Genesys Cloud and the Lex-Kendra solution components reside natively on AWS. Genesys Cloud uses the Genesys Cloud Amazon Lex integration to provide customers with a standard Amazon Lex chatbot. Amazon Kendra uses natural language processing and machine learning abilities to process the customer's question and search an informational database stored in Amazon S3. Amazon Kendra and AWS Lambda then route the discovered answer back into the customer chat. This all occurs without live agent assistance.
 
-![Genesys Cloud and the Lex-Kendra chatbot](images/bpKendraOverviewMR.png "A high-level overview of the components and connections described in this Blueprint")
+![Genesys Cloud and the Lex-Kendra Chatbot](images/bpKendraOverviewMR.png "A high-level overview of the components and connections described in this Blueprint")
 
-* [Solution components](#solution_components "Goes to the Solution components section")
+* [Solution components](#solution-components "Goes to the Solution components section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
-* [Implementation steps](#implementation_steps "Goes to the Implementation steps section")
-* [Additional resources](#additional_resources "Goes to the Additional resources section")
+* [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
+* [Additional resources](#additional-resources "Goes to the Additional resources section")
 
 ## Solution components
 
@@ -52,13 +52,13 @@ This integrated solution enhances the capabilities of Genesys Cloud with convers
 
 ## Implementation steps
 
-* [Create an Amazon S3 bucket and upload the FAQ document](#create_an_amazon_s3_bucket_and_upload_the_faq_document "Goes to the Create an Amazon S3 bucket and upload the FAQ document section")
-* [Deploy the AWS CloudFormation template](#deploy_the_aws_cloudformation_template "Goes to the Deploy the AWS CloudFormation template section")
-* [Create a queue in Genesys Cloud](#create_a_queue_in_genesys_cloud "Goes to the Create a queue in Genesys Cloud section")
-* [Install and activate the Amazon Lex integration app on Genesys Cloud](#install_and_activate_the_amazon_lex_integration_app_on_genesys_cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section")
-* [Use Architect to call the Lex-Kendra chatbot](#use_architect_to_call_the_lex-kendra_chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section")
-* [Create a Genesys web chat widget and test the solution](#create_a_genesys_web_chat_widget_and_test_the_solution "Goes to the Create a Genesys web chat widget and test the solution section")
-* [Deploy the Lex-Kendra chatbot to your website](#deploy_the_lex-kendra_chatbot_to_your_website "Goes to the Deploy the Lex-Kendra chatbot to your website section")
+* [Create an Amazon S3 bucket and upload the FAQ document](#create-an-amazon-s3-bucket-and-upload-the-faq-document "Goes to the Create an Amazon S3 bucket and upload the FAQ document section")
+* [Deploy the AWS CloudFormation template](#deploy-the-aws-cloudformation-template "Goes to the Deploy the AWS CloudFormation template section")
+* [Create a queue in Genesys Cloud](#create-a-queue-in-genesys-cloud "Goes to the Create a queue in Genesys Cloud section")
+* [Install and activate the Amazon Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section")
+* [Use Architect to call the Lex-Kendra chatbot](#use-architect-to-call-the-lex---kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section")
+* [Create a Genesys web chat widget and test the solution](#create-a-genesys-web-chat-widget-and-test-the-solution "Goes to the Create a Genesys web chat widget and test the solution section")
+* [Deploy the Lex-Kendra chatbot to your website](#deploy-the-lex---kendra-chatbot-to-your-website "Goes to the Deploy the Lex-Kendra chatbot to your website section")
 
 ### Create an Amazon S3 bucket and upload a .csv file
 
@@ -93,12 +93,12 @@ To deploy the prepared AWS CloudFormation template, complete the following steps
 11. On the Review Lex-Kendra window, click the acknowledgements at the bottom of the page and then click **Create stack**.
 
   :::primary
-  **Note**: The stack creation process can take up to 30 minutes. During this time, you can complete the [Create a queue in Genesys Cloud](#create_a_queue_in_genesys_cloud "Goes to the Create a queue in Genesys Cloud section") and [Install and activate the Lex integration app on Genesys Cloud](#install_and_activate_the_amazon_lex_integration_app_on_genesys_cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedures, which are described in the following sections.
+  **Note**: The stack creation process can take up to 30 minutes. During this time, you can complete the [Create a queue in Genesys Cloud](#create-a-queue-in-genesys-cloud "Goes to the Create a queue in Genesys Cloud section") and [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedures, which are described in the following sections.
   :::
 
 13. After stack creation is complete, open the Amazon Lex console and confirm that the Lex-Kendra stack exists  under **CloudFormation** > **Stacks**.
 14. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
-15. Copy the **AssumeIAMRrole** Physical ID for use in the [Install and activate the Amazon Lex integration app on Genesys Cloud](#install_and_activate_the_amazon_lex_integration_app_on_genesys_cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure in a subsequent section.
+15. Copy the **AssumeIAMRrole** Physical ID for use in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure in a subsequent section.
 
 ### Create a queue in Genesys Cloud
 
@@ -122,13 +122,13 @@ Complete the procedures explained in the following Genesys Cloud Resource Center
 
 ### Use Architect to call the Lex-Kendra chatbot
 
-This blueprint lays out the steps required to create and activate the Lex-Kendra chatbot on an inbound chat flow. It creates a new data action to initially route all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see [Additional resources](#additional_resources "Goes to the Additional resources section").
+This blueprint lays out the steps required to create and activate the Lex-Kendra chatbot on an inbound chat flow. It creates a new data action to initially route all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see [Additional resources](#additional-resources "Goes to the Additional resources section").
 
 1. From the Architect home page, click or hover over the **Flows** menu and select **Inbound Chat** to create an inbound chat flow. For more information, see the **Create an inbound chat flow** section in [Create a flow](https://help.mypurecloud.com/?p=3792 "Opens the Create a flow article") in the Genesys Cloud Resource Center.
 2. Delete any actions, if present, to begin with a clean flow.  
 ![Inbound Chat Flow screen](images/bp_kendra_arch1.png "An Architect flow window showing how to delete any pre-populated content to create an empty flow")
 3. From the stacked-dots menu to the right of the **Start** component, click **Toolbox** > **Data** > **Call Lexbot**. For more information, see the **Call Lex Bot action in inbound chat flows ** section in [Call Lex Bot action](https://help.mypurecloud.com/?p=160620 "Opens the Call Lex Bot action article") in the Genesys Cloud Resource Center.
-4. Under **Bot Name**, select the name that you chose in the [Install and activate the Lex integration app on Genesys Cloud](#install_and_activate_the_lex_integration_app_on_genesys_cloud “Goes to the Install and activate the Lex integration app on Genesys Cloud section”) procedure.
+4. Under **Bot Name**, select the name that you chose in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-lex-integration-app-on-genesys-cloud “Goes to the Install and activate the Lex integration app on Genesys Cloud section”) procedure.
 5. Under the **Bot alias** menu, select the appropriate name.
 
 Architect populates the defined intents of the Amazon Lex chatbot, including an Amazon Kendra search intent.
@@ -164,7 +164,7 @@ Complete the following procedures in Genesys Cloud and the Genesys Cloud Develop
 1. From the Genesys Cloud Admin menu, create a Genesys Widget Version 2, following the procedure in the *Version 2* section of the [Create a widget for web chat](https://help.mypurecloud.com/?p=195772 "Opens the Create a widget for web chat article") in the Genesys Cloud Resource Center.
 
   :::primary
-  **Note**: In the **Route to Flow** menu step of the Create a widget for web chat procedure, choose the flow you created in the [Use Architect to call the Lex-Kendra chatbot](#Use_architect_to_call_the_lex-kendra_chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section") procedure.
+  **Note**: In the **Route to Flow** menu step of the Create a widget for web chat procedure, choose the flow you created in the [Use Architect to call the Lex-Kendra chatbot](#use-architect-to-call-the-lex---kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section") procedure.
   :::
 
 2. After you save the widget, the window displays a Deployment Key string. Copy this string to use later, if needed.
