@@ -168,7 +168,7 @@ Complete the following procedures in Genesys Cloud and the Genesys Cloud Develop
   :::
 
 2. After you save the widget, the window displays a Deployment Key string. Copy this string to use later, if needed.
-3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.mypurecloud.com/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start page").
+3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.genesys.cloud/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start page").
 
   :::primary
   **Note**: Using the shared authentication between Genesys Cloud and the developer tools, the Web Chat developer tool populates the relevant fields with appropriate values for the widget and queue you created earlier. If the fields are not populated, use the Deployment Key string you copied earlier to locate the correct widget and queue.
@@ -200,7 +200,7 @@ The question "What precautions can I take?" does not elicit a standard Amazon Le
 
 ### Deploy the Lex-Kendra chatbot to your website
 
-The Web Chat developer tool generates the script needed to deploy the Lex-Kendra chatbot on your website. The generated script is directly under the **Start Chat** button. For more information on deploying the widget, see the deployment instructions in [Widget - Version 2](https://developer.mypurecloud.com/api/webchat/widget-version2.html "Opens the Widget - Version 2 page").
+The Web Chat developer tool generates the script needed to deploy the Lex-Kendra chatbot on your website. The generated script is directly under the **Start Chat** button. For more information on deploying the widget, see the deployment instructions in [Widget - Version 2](https://developer.genesys.cloud/api/webchat/widget-version2.html "Opens the Widget - Version 2 page").
 
 ## Additional resources
 
@@ -209,5 +209,5 @@ The Web Chat developer tool generates the script needed to deploy the Lex-Kendra
 * [About the Amazon Lex integration](https://help.mypurecloud.com/?p=162338 "Opens the About the Amazon Lex integration article") in the Genesys Cloud Resource Center
 * [Call Lex Bot action](https://help.mypurecloud.com/?p=160620 "Opens the Call Lex Bot action article") in the Genesys Cloud Resource Center
 * [About Architect](https://help.mypurecloud.com/?p=53682 "Opens the About Architect article") in the Genesys Cloud Resource Center
-* [Widget - Version 2](https://developer.mypurecloud.com/api/webchat/widget-version2.html "Opens the Widget - Version 2 page") in the Genesys Cloud Developer Center
+* [Widget - Version 2](https://developer.genesys.cloud/api/webchat/widget-version2.html "Opens the Widget - Version 2 page") in the Genesys Cloud Developer Center
 * [AMAZON.KendraSearchIntent](https://docs.aws.amazon.com/en_us/lex/latest/dg/built-in-intent-kendra-search.html "Opens the AMAZON.KendraSearchIntent page") in the Amazon Lex Developer Guide
