@@ -174,6 +174,7 @@ Complete the following procedures in Genesys Cloud and the Genesys Cloud Develop
 
 4. From the Deployment menu in the Web Chat developer tool, select the chat widget you created.
 5. From the Queue menu, select the appropriate queue.
+
   ![Web Chat developer tool](images/bp_kendra_wc1.png "Shows the Chat Configuration window with the Deployment, Queue, and Start Chat fields indicated with red circles")
 
 You have have completed the configuration for the Lex-Kendra chatbot solution. Proceed to the next section to test the solution before you deploy it to your website.
