@@ -1,6 +1,6 @@
 #  Deploy the Lex-Kendra chatbot on Genesys Cloud
 
-> View the full [Deploy the Lex-Kendra chatbot on Genesys Cloud](https://developer.mypurecloud.com/blueprints/aws-lex-kendra/) Genesys Cloud Developer Blueprint in the Genesys Cloud Developer Center.
+> View the full [Deploy the Lex-Kendra chatbot on Genesys Cloud](https://developer.genesys.cloud/blueprints/aws-lex-kendra/) Genesys Cloud Developer Blueprint in the Genesys Cloud Developer Center.
 
 This Genesys Cloud Developer Blueprint explains how to deploy the Lex-Kendra chatbot on Genesys Cloud. The Lex-Kendra chatbot solution, which is part of the AWS Contact Center Intelligence (CCI) accelerator, combines this basic Amazon Lex chatbot with Amazon Kendra to create a Lex-Kendra self-service chatbot. This combination enables an Amazon Lex flow to invoke an AWS Lambda function to call Amazon Kendra after a customer initiates a chat and enters a triggering question.
 
