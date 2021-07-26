@@ -56,11 +56,11 @@ This integrated solution enhances the capabilities of Genesys Cloud with convers
 * [Deploy the AWS CloudFormation template](#deploy-the-aws-cloudformation-template "Goes to the Deploy the AWS CloudFormation template section")
 * [Create a queue in Genesys Cloud](#create-a-queue-in-genesys-cloud "Goes to the Create a queue in Genesys Cloud section")
 * [Install and activate the Amazon Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section")
-* [Use Architect to call the Lex-Kendra chatbot](#use-architect-to-call-the-lex---kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section")
+* [Use Architect to call the Lex Kendra chatbot](#use-architect-to-call-the-lex-kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section")
 * [Create a Genesys web chat widget and test the solution](#create-a-genesys-web-chat-widget-and-test-the-solution "Goes to the Create a Genesys web chat widget and test the solution section")
-* [Deploy the Lex-Kendra chatbot to your website](#deploy-the-lex---kendra-chatbot-to-your-website "Goes to the Deploy the Lex-Kendra chatbot to your website section")
+* [Deploy the Lex Kendra chatbot to your website](#deploy-the-lex-kendra-chatbot-to-your-website "Goes to the Deploy the Lex-Kendra chatbot to your website section")
 
-### Create an Amazon S3 bucket and upload a .csv file
+### Create an Amazon S3 bucket and upload the FAQ document
 
 1. Create an Amazon S3 bucket to serve as the document repository and copy the bucket name for later use. For more information, see [Step 1: Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html "Opens the Step 1: Create your first S3 bucket page") in the AWS documentation.
 2. Download an FAQ file in .csv format from the [aws-lex-kendra](https://github.com/GenesysCloudBlueprints/aws-lex-kendra "Opens the aws-lex-kendra repository") GitHub repository.
@@ -120,7 +120,7 @@ Complete the procedures explained in the following Genesys Cloud Resource Center
   **Note**: When the Change Credentials dialog prompts you for the customer AWS role that Genesys Cloud is authorized to access, paste the **AssumeIAMRole** Physical ID you copied from the AWS console.
   :::
 
-### Use Architect to call the Lex-Kendra chatbot
+### Use Architect to call the Lex Kendra chatbot
 
 This blueprint lays out the steps required to create and activate the Lex-Kendra chatbot on an inbound chat flow. It creates a new data action to initially route all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see [Additional resources](#additional-resources "Goes to the Additional resources section").
 
@@ -162,7 +162,7 @@ Complete the following procedures in Genesys Cloud and the Genesys Cloud Develop
 1. From the Genesys Cloud Admin menu, create a Genesys Widget Version 2, following the procedure in the *Version 2* section of the [Create a widget for web chat](https://help.mypurecloud.com/?p=195772 "Opens the Create a widget for web chat article") in the Genesys Cloud Resource Center.
 
   :::primary
-  **Note**: In the **Route to Flow** menu step of the Create a widget for web chat procedure, choose the flow you created in the [Use Architect to call the Lex-Kendra chatbot](#use-architect-to-call-the-lex---kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section") procedure.
+  **Note**: In the **Route to Flow** menu step of the Create a widget for web chat procedure, choose the flow you created in the [Use Architect to call the Lex Kendra chatbot](#use-architect-to-call-the-lex-kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section") procedure.
   :::
 
 2. After you save the widget, the window displays a Deployment Key string. Copy this string to use later, if needed.
@@ -179,7 +179,7 @@ Complete the following procedures in Genesys Cloud and the Genesys Cloud Develop
 
 You have have completed the configuration for the Lex-Kendra chatbot solution. Proceed to the next section to test the solution before you deploy it to your website.
 
-#### Test the Lex-Kendra solution
+#### Test the Lex Kendra solution
 
 1. Click **Start Chat** to test your Lex-Kendra chatbot solution.
 
@@ -198,7 +198,7 @@ The question "What is the incubation period for the virus?" elicits a standard A
 The question "What precautions can I take?" does not elicit a standard Amazon Lex intent because there is no Amazon Lex intent preconfigured for that question. This question triggers an Amazon Kendra search and the response comes from a search of the document you uploaded into your Amazon S3 bucket. You can confirm this is a Lex-Kendra response by noting that the response begins with the phrase "On searching the Enterprise repository".
 ![Sample Question 2](images/bp_kendra_TQ2.png "A sample chat interaction with a customer question answered by a reply generated using he Lex-Kendra integration")
 
-### Deploy the Lex-Kendra chatbot to your website
+### Deploy the Lex Kendra chatbot to your website
 
 The Web Chat developer tool generates the script needed to deploy the Lex-Kendra chatbot on your website. The generated script is directly under the **Start Chat** button. For more information on deploying the widget, see the deployment instructions in [Widget - Version 2](https://developer.genesys.cloud/api/webchat/widget-version2.html "Opens the Widget - Version 2 page").
 
