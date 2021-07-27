@@ -96,9 +96,9 @@ To deploy the prepared AWS CloudFormation template, complete the following steps
   **Note**: The stack creation process can take up to 30 minutes. During this time, you can complete the [Create a queue in Genesys Cloud](#create-a-queue-in-genesys-cloud "Goes to the Create a queue in Genesys Cloud section") and [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedures, which are described in the following sections.
   :::
 
-13. After stack creation is complete, open the Amazon Lex console and confirm that the Lex-Kendra stack exists  under **CloudFormation** > **Stacks**.
-14. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
-15. Copy the **AssumeIAMRrole** Physical ID for use in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure in a subsequent section.
+12. After stack creation is complete, open the Amazon Lex console and confirm that the Lex-Kendra stack exists  under **CloudFormation** > **Stacks**.
+13. In the Amazon Lex console under **CloudFormation > Stacks**, click the **Resources** tab.
+14. Copy the **AssumeIAMRrole** Physical ID for use in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure in a subsequent section.
 
 ### Create a queue in Genesys Cloud
 
@@ -130,7 +130,7 @@ This blueprint lays out the steps required to create and activate the Lex-Kendra
 ![Inbound Chat Flow screen](images/bp_kendra_arch1.png "An Architect flow window showing how to delete any pre-populated content to create an empty flow")
 
 3. From the stacked-dots menu to the right of the **Start** component, click **Toolbox** > **Data** > **Call Lexbot**. For more information, see the **Call Lex Bot action in inbound chat flows ** section in [Call Lex Bot action](https://help.mypurecloud.com/?p=160620 "Opens the Call Lex Bot action article") in the Genesys Cloud Resource Center.
-4. Under **Bot Name**, select the name that you chose in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-lex-integration-app-on-genesys-cloud “Goes to the Install and activate the Lex integration app on Genesys Cloud section”) procedure.
+4. Under **Bot Name**, select the name that you chose in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure.
 5. Under the **Bot alias** menu, select the appropriate name.
 
 Architect populates the defined intents of the Amazon Lex chatbot, including an Amazon Kendra search intent.
