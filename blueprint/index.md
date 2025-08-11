@@ -122,20 +122,20 @@ Complete the procedures explained in the following Genesys Cloud Resource Center
 
 ### Use Architect to call the Lex Kendra chatbot
 
-This blueprint lays out the steps required to create and activate the Lex-Kendra chatbot on an inbound chat flow. It creates a new data action to initially route all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see [Additional resources](#additional-resources "Goes to the Additional resources section").
+This blueprint lays out the steps required to create and activate the Lex-Kendra chatbot on an inbound message flow. It creates a new data action to initially route all messages to the Lex-Kendra chatbot. To learn more about additional options and the flow design capabilities of Architect, see [Additional resources](#additional-resources "Goes to the Additional resources section").
 
-1. From the Architect home page, click or hover over the **Flows** menu and select **Inbound Chat** to create an inbound chat flow. For more information, see the **Create an inbound chat flow** section in [Create a flow](https://help.mypurecloud.com/?p=3792 "Opens the Create a flow article") in the Genesys Cloud Resource Center.
+1. From the Architect home page, click or hover over the **Flows** menu and select **Inbound Message** to create an inbound message flow. For more information, see the **Create an inbound message flow** section in [Create a flow](https://help.mypurecloud.com/?p=3792 "Opens the Create a flow article") in the Genesys Cloud Resource Center.
 
 2. Delete any actions, if present, to begin with a clean flow.  
-![Inbound Chat Flow screen](images/bp_kendra_arch1.png "An Architect flow window showing how to delete any pre-populated content to create an empty flow")
+![Inbound Message Flow screen](images/bp_kendra_arch1.png "An Architect flow window showing how to delete any pre-populated content to create an empty flow")
 
-3. From the stacked-dots menu to the right of the **Start** component, click **Toolbox** > **Data** > **Call Lexbot**. For more information, see the **Call Lex Bot action in inbound chat flows ** section in [Call Lex Bot action](https://help.mypurecloud.com/?p=160620 "Opens the Call Lex Bot action article") in the Genesys Cloud Resource Center.
+3. From the stacked-dots menu to the right of the **Start** component, click **Toolbox** > **Bot** > **Call Lexbot**. For more information, see the **Call Lex Bot action in inbound message flows ** section in [Call Lex Bot action](https://help.mypurecloud.com/?p=160620 "Opens the Call Lex Bot action article") in the Genesys Cloud Resource Center.
 4. Under **Bot Name**, select the name that you chose in the [Install and activate the Lex integration app on Genesys Cloud](#install-and-activate-the-amazon-lex-integration-app-on-genesys-cloud "Goes to the Install and activate the Lex integration app on Genesys Cloud section") procedure.
 5. Under the **Bot alias** menu, select the appropriate name.
 
 Architect populates the defined intents of the Amazon Lex chatbot, including an Amazon Kendra search intent.
 
-#### Configure the chat flow
+#### Configure the message flow
 
 1. Set the flow to return to the initial state after the Amazon Lex chatbot is called:
 
@@ -157,33 +157,34 @@ Architect populates the defined intents of the Amazon Lex chatbot, including an 
 
 Complete the following procedures in Genesys Cloud and the Genesys Cloud Developer Center Web Chat developer tool.
 
-#### Create a Genesys web chat widget
+#### Create a Genesys web messaging deployment 
+#### Messenger Configuration 
 
-1. From the Genesys Cloud Admin menu, create a Genesys Widget Version 2, following the procedure in the *Version 2* section of the [Create a widget for web chat](https://help.mypurecloud.com/?p=195772 "Opens the Create a widget for web chat article") in the Genesys Cloud Resource Center.
+1. In Genesys Cloud, navigate to **Admin** > **Message** > **Messenger Configurations** and click **New Configuration**.
+2. Fill in the configuration based on your needs.
+3. Click **Save New Version**.
 
-  :::primary
-  **Note**: In the **Route to Flow** menu step of the Create a widget for web chat procedure, choose the flow you created in the [Use Architect to call the Lex Kendra chatbot](#use-architect-to-call-the-lex-kendra-chatbot "Goes to the Use Architect to call the Lex-Kendra chatbot section") procedure.
-  :::
+#### Messenger Deployment 
 
-2. After you save the widget, the window displays a Deployment Key string. Copy this string to use later, if needed.
-3. From your browser, go to the Genesys Cloud Developer Center and open the Web Chat developer tool. For more information, see [Web Chat developer tool quick start](https://developer.genesys.cloud/gettingstarted/developer-tools-web-chats.html "Opens the Web Chat developer tool quick start page").
+1. In Genesys Cloud, navigate to **Admin** > **Message** > **Messenger Deployments** and click **New Deployment**.
+2. In **Select your Configuration**, select the **Messenger Configuration** you made previously.
+3. In **Select your Architect Flow**, select the **Switch from Voice Channel with Context**.
+4. Click **Save**.
 
-  :::primary
-  **Note**: Using the shared authentication between Genesys Cloud and the developer tools, the Web Chat developer tool populates the relevant fields with appropriate values for the widget and queue you created earlier. If the fields are not populated, use the Deployment Key string you copied earlier to locate the correct widget and queue.
-  :::
+#### Deploy the snippet to your website 
 
-4. From the Deployment menu in the Web Chat developer tool, select the chat widget you created.
-5. From the Queue menu, select the appropriate queue.
+After you have created the Genesys Cloud objects, use a Messenger deployment to add a Messenger chat window to your website.
 
-  ![Web Chat developer tool](images/bp_kendra_wc1.png "Shows the Chat Configuration window with the Deployment, Queue, and Start Chat fields indicated with red circles")
+1. Navigate to **Admin** > **Message** > **Messenger Deployments**. Select your Messenger Deployment.
+2. Under **Deploy your snippet**, click **Copy to Clipboard** to copy the snippet. Paste the snippet in the `<head>` tag of the web pages where you want the Messenger to appear.
 
 You have have completed the configuration for the Lex-Kendra chatbot solution. Proceed to the next section to test the solution before you deploy it to your website.
 
 #### Test the Lex Kendra solution
 
-1. Click **Start Chat** to test your Lex-Kendra chatbot solution.
-
-2. Type in test questions to trigger a specific bot response.
+1. Go to Genesys Cloud [Developer Tools](https://developer.mypurecloud.com/developer-tools/#/webchat).
+2. Select your deployment and queue and initiate a messaging interaction.
+3. Type in test questions to trigger a specific bot response.
 
 To help formulate test questions to elicit a specific response, you can use the AWS console to examine the Kendra_Search_Intent and also the .csv file you uploaded to the Amazon S3 bucket. See the sample questions below for examples of a standard Amazon Lex response and a response from an Amazon Kendra interaction.
 
@@ -197,10 +198,6 @@ The question "What is the incubation period for the virus?" elicits a standard A
 
 The question "What precautions can I take?" does not elicit a standard Amazon Lex intent because there is no Amazon Lex intent preconfigured for that question. This question triggers an Amazon Kendra search and the response comes from a search of the document you uploaded into your Amazon S3 bucket. You can confirm this is a Lex-Kendra response by noting that the response begins with the phrase "On searching the Enterprise repository".
 ![Sample Question 2](images/bp_kendra_TQ2.png "A sample chat interaction with a customer question answered by a reply generated using he Lex-Kendra integration")
-
-### Deploy the Lex Kendra chatbot to your website
-
-The Web Chat developer tool generates the script needed to deploy the Lex-Kendra chatbot on your website. The generated script is directly under the **Start Chat** button. For more information on deploying the widget, see the deployment instructions in [Widget - Version 2](https://developer.genesys.cloud/api/webchat/widget-version2.html "Opens the Widget - Version 2 page").
 
 ## Additional resources
 
